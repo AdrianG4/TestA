@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+ <html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <title>AngularJS fun app</title>
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div ng-controller="FunController as fun">
+    <div ng-repeat="zone in fun.zone"></div>
+    <h1>{{fun.zone.name}}</h1>
+    <h2>{{fun.zone.description}}</h2>
+</div>
+
+
+
+<div class="container theme-showcase" role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <center>  <div class="jumbotron">
+        <h1>ALEX: the app</h1>
+
+    </div></center>
+
+    <div ng-controller="formCtrl">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">QUIZ: How Well Do You Know Alex?</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form ng-submit="results()">
+                            His first name (case sensitive):<br>
+                            <input required="required" type="text" ng-model="user.firstName"><br>
+                            His last name (case sensitive):<br>
+                            <input required="required" type="text" ng-model="user.lastName">
+                            <br>
+                            <br>
+                            Male
+                            <input type="radio" value="Male" ng-model="user.Gender">
+                            Female
+                            <input type="radio" value="Female" ng-model="user.Gender">
+                            <br>
+                            <br>
+                            His appearance
+                            <select required="required" name="dropdownmenu" ng-model="user.Appearance">
+                                <option>Hairy</option>
+                                <option>Homeless</option>
+                                <option>Hefty</option>
+                                <option>Healthy</option>
+                            </select>
+                            <br>
+                            <br>
+                            His personality
+                            <select name="dropdownmenu" ng-model="user.Personality">
+                                <option>Nervous</option>
+                                <option>Nosy</option>
+                                <option>Nice</option>
+                                <option>Needy</option>
+                            </select>
+                            <br>
+                            <br>
+                            <input type="submit" id="submit" value="Submit" />
+
+                        </form>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                       <center> <img width="200" src="images/alexguitarman.png"></center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Results</h3>
+                    </div>
+            <div class="panel-body">
+                    {{finalresult}}
+                <div ng-show="progressLevel" class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar"  aria-valuenow="percentright" aria-valuemin="0" aria-valuemax="100" style="width: {{percentright}}%;">
+                            <span class="sr-only"></span>
+                            {{percentright}}%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+</div>
+
+
+
+
+
+
+   <script src="bower_components/angular/angular.js"></script>
+   <script src="bower_components/angular-route/angular-route.js"></script>
+   <script src="app.js"></script>
+   <script src="components/version/interpolate-filter.js"></script>
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</body>
+</html>
